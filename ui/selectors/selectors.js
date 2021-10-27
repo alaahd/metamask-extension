@@ -2,7 +2,6 @@ import { createSelector } from 'reselect';
 import { addHexPrefix } from '../../app/scripts/lib/util';
 import {
   MAINNET_CHAIN_ID,
-  BSC_CHAIN_ID,
   TEST_CHAINS,
   NETWORK_TYPE_RPC,
   NATIVE_CURRENCY_TOKEN_IMAGE_MAP,
@@ -574,6 +573,9 @@ export function getShowWhatsNewPopup(state) {
 function getAllowedNotificationIds(state) {
   const currentKeyring = getCurrentKeyring(state);
   const currentKeyringIsLedger = currentKeyring?.type === KEYRING_TYPES.LEDGER;
+  const supportsWebHid = Boolean(window.navigator.hid);
+  const currentlyUsingLedgerLive =
+    getLedgerTransportType(state) === LEDGER_TRANSPORT_TYPES.LIVE;
 
   return {
     1: false,
@@ -583,6 +585,7 @@ function getAllowedNotificationIds(state) {
     5: false,
     6: false,
     7: false,
+    8: supportsWebHid && currentKeyringIsLedger && currentlyUsingLedgerLive,
   };
 }
 
