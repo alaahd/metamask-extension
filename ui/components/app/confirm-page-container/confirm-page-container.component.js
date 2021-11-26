@@ -75,7 +75,7 @@ export default class ConfirmPageContainer extends Component {
     handleCloseEditGas: PropTypes.func,
     // Gas Popover
     currentTransaction: PropTypes.object.isRequired,
-    showAddToAddressBookModal: PropTypes.func,
+    addNicknameModal: PropTypes.func,
     contact: PropTypes.object,
     isOwnedAccount: PropTypes.bool,
   };
@@ -126,7 +126,7 @@ export default class ConfirmPageContainer extends Component {
       editingGas,
       handleCloseEditGas,
       currentTransaction,
-      showAddToAddressBookModal,
+      addNicknameModal,
       contact = {},
       isOwnedAccount,
     } = this.props;
@@ -179,7 +179,7 @@ export default class ConfirmPageContainer extends Component {
               <Dialog
                 type="message"
                 className="send__dialog"
-                onClick={() => showAddToAddressBookModal()}
+                onClick={() => addNicknameModal()}
               >
                 {this.context.t('newAccountDetectedDialogMessage')}
               </Dialog>
