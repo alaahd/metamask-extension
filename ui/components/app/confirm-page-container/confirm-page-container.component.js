@@ -194,6 +194,7 @@ export default class ConfirmPageContainer extends Component {
               hideSubtitle={hideSubtitle}
               detailsComponent={detailsComponent}
               dataComponent={dataComponent}
+              dataHexComponent={dataHexComponent}
               errorMessage={errorMessage}
               errorKey={errorKey}
               identiconAddress={identiconAddress}

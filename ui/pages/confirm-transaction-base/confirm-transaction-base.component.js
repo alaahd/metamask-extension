@@ -1040,6 +1040,7 @@ export default class ConfirmTransactionBase extends Component {
           hideSubtitle={hideSubtitle}
           detailsComponent={this.renderDetails()}
           dataComponent={this.renderData(functionType)}
+          dataHexComponent={this.renderDataHex(functionType)}
           contentComponent={contentComponent}
           nonce={customNonceValue || nonce}
           unapprovedTxCount={unapprovedTxCount}
